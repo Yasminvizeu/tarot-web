@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F8F8F8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+#button {
+    background-color: #FFB03B;
+    color: #FFF;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#button:hover {
+    background-color: #FFA300;
+}
+
+.illustration {
+    max-width: 400px;
+    margin-top: 50px;
+}
+
+#jogar-cartas-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#jogar-cartas-modal main {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+#jogar-cartas-modal h2 {
+    margin-top: 0;
+    font-size: 24px;
+}
+
+#jogar-cartas-modal label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#jogar-cartas-modal input[type="text"],
+#jogar-cartas-modal textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#jogar-cartas-modal button {
+    background-color: #FFB03B;
+    color: #FFF;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#jogar-cartas-modal button:hover {
+    background-color: #FFA300;
+}
+
+#fechar-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#fechar-modal:hover {
+    color: #000;
+}
+

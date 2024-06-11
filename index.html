@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Tarô</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Jogue o Tarô Mágico!</h1>
+        <button id="button" onclick="openModal()" >Jogar Tarô</button>
+        <img class="illustration" src="./img/logo.png" alt="Ilustração de cartas de tarô">
+    </div>
+</body>
+<div id="jogar-cartas-modal">
+        <main>
+            <button id="fechar-modal" onclick="fecharModal()">Fechar</button>
+            <h2>Tarot Mágico</h2>
+            <form onsubmit="jogarTarot(event)">
+                <label for="nome">Nome ou apelido:</label>
+                <input type="text" id="nome" name="nome" required>
+                <button type="submit">Tirar carta</button>
+            </form>
+            <div id="carta">
+                <h3 id="nome-carta"></h3>
+                <p id="descricao-carta"></p>
+            </div>
+        </main>
+    </div>
+</html>
