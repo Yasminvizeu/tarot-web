@@ -98,10 +98,9 @@ h1 {
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-    margin: 15px; /* Set button margin for spacing */
-    border: none; /* Remove default button border */
-    text-align: center; /* Center button text */
-
+    margin: 15px;
+    border: none;
+    text-align: center;
 }
 
 #jogar-cartas-modal button:hover, 
@@ -125,11 +124,10 @@ h1 {
 }
 
 #listar-cartas-modal #cartas {
-  display: flex; /* Enable flexbox layout */
-  flex-direction: column; /* Arrange items vertically */
-  align-items: center; /* Center items horizontally */
-  justify-content: flex-start; /* Align items at the top */
-
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  justify-content: flex-start;
 }
 
 

@@ -53,7 +53,6 @@ function jogarTarot(event) {
 
     var cartaSelecionada = cartas[Math.floor(Math.random() * cartas.length)];
 
-    // Concatenar o nome da pessoa com a descrição da carta
     var saudacao ="Hi " + event.target.nome.value + ", you got the card: " + cartaSelecionada.name;
     var valor ="VALUE:" + cartaSelecionada.value_int;
     var tipo ="TYPE: Arcan " + cartaSelecionada.type;
@@ -61,7 +60,6 @@ function jogarTarot(event) {
     var meaningRev ="MEANING REV: " + cartaSelecionada.meaning_rev;
     var descricao ="DESCRIPTION: " + cartaSelecionada.desc;
     
-    // Exibir o nome e a descrição da carta selecionada
     document.getElementById("nome-carta").textContent = saudacao;
     document.getElementById("valor-carta").textContent = valor;
     document.getElementById("tipo-carta").textContent = tipo;
@@ -72,17 +70,11 @@ function jogarTarot(event) {
 
 function listarCartas() {
     const cartasContainer = document.getElementById("cartas");
-  
-    // Clear existing buttons before adding new ones (optional)
     cartasContainer.innerHTML = "";
-  
     for (const carta of cartas) {
       const button = document.createElement("button");
       button.textContent = carta.name;
-      // Add data attribute for the card name (optional)
       button.dataset.name = carta.name;
-  
-      // Append the button to the cartasContainer
       cartasContainer.appendChild(button);
     }
   }
