@@ -48,7 +48,7 @@ h1 {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.4);   
 }
 
 #jogar-cartas-modal main {
@@ -56,9 +56,10 @@ h1 {
     margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 100%;
     max-width: 600px;
-    border-radius: 10px;
+    height: auto;
+    overflow: scroll; 
 }
 
 #jogar-cartas-modal h2 {
@@ -109,4 +110,5 @@ h1 {
 #fechar-modal:hover {
     color: #000;
 }
+
 
