@@ -18,6 +18,14 @@ var cartas = [
         type:'minor',
         meaning_up:'Fairy favours, images of reflection, sentiment, imagination, things seen in the glass of contemplation; some attainment in these degrees, but nothing permanent or substantial is suggested.',meaning_rev:'Desire, will, determination, project.',desc:'Strange chalices of vision, but the images are more especially those of the fantastic spirit.Strange chalices of vision, but the images are more especially those of the fantastic spirit.Strange chalices of vision, but the images are more especially those of the fantastic spirit.Strange chalices of vision, but the images are more especially those of the fantastic spirit.Strange chalices of vision, but the images are more especially those of the fantastic spirit.Strange chalices of vision, but the images are more especially those of the fantastic spirit.Strange chalices of vision, but the images are more especially those of the fantastic spirit.'
     },
+
+    {
+        name:'Nine of Cups',
+        value_int:7,
+        type:'minor',
+        meaning_up:'Fairy favours, images of reflection, sentiment, imagination, things seen in the glass of contemplation; some attainment in these degrees, but nothing permanent or substantial is suggested.',meaning_rev:'Desire, will, determination, project.',
+        desc:'A goodly personage has feasted to his hearts content, and abundant refreshment of wine is on the arched counter behind him, seeming to indicate that the future is also assured. The picture offers the material side only, but there are other aspects'
+    }
     
 ];
 const openModalJogar = () => {
@@ -28,6 +36,7 @@ const openModalJogar = () => {
 const openModalListar = () => {
 	const modal = document.getElementById('listar-cartas-modal')
 	modal.style.display = 'flex'
+    listarCartas();
 }
 
 function fecharModalJogar() {
@@ -40,11 +49,8 @@ function fecharModalListar() {
 }
 
 function jogarTarot(event) {
-    event.preventDefault(); // Prevenir o comportamento padrão do formulário
-    
-    // Nomes e descrições das cartas 
-    
-    // Selecionar aleatoriamente uma carta
+    event.preventDefault(); 
+
     var cartaSelecionada = cartas[Math.floor(Math.random() * cartas.length)];
 
     // Concatenar o nome da pessoa com a descrição da carta
@@ -62,8 +68,26 @@ function jogarTarot(event) {
     document.getElementById("meaning-up-carta").textContent = meaningUp;
     document.getElementById("meaning-rev-carta").textContent = meaningRev;
     document.getElementById("descricao-carta").textContent = descricao;
-    
-    // // Exibir o modal
-    // var modal = document.getElementById("jogar-cartas-modal");
-    // modal.style.display = "none"; // Esconder o modal após a seleção da carta
 }
+
+function listarCartas() {
+    const cartasContainer = document.getElementById("cartas");
+  
+    // Clear existing buttons before adding new ones (optional)
+    cartasContainer.innerHTML = "";
+  
+    for (const carta of cartas) {
+      const button = document.createElement("button");
+      button.textContent = carta.name;
+      // Add data attribute for the card name (optional)
+      button.dataset.name = carta.name;
+  
+      // Append the button to the cartasContainer
+      cartasContainer.appendChild(button);
+    }
+  }
+
+function atualizarCartas(){
+    console.log("atualizando campos")
+}
+
