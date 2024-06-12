@@ -19,7 +19,8 @@ h1 {
     margin-bottom: 30px;
 }
 
-#button {
+#button1,
+#button2 {
     background-color: #FFB03B;
     color: #FFF;
     border: none;
@@ -30,7 +31,7 @@ h1 {
     transition: background-color 0.3s ease;
 }
 
-#button:hover {
+#button:hover, #button:hover {
     background-color: #FFA300;
 }
 
@@ -39,7 +40,8 @@ h1 {
     margin-top: 50px;
 }
 
-#jogar-cartas-modal {
+#jogar-cartas-modal,
+#listar-cartas-modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -51,7 +53,8 @@ h1 {
     background-color: rgba(0, 0, 0, 0.4);   
 }
 
-#jogar-cartas-modal main {
+#jogar-cartas-modal main, 
+#listar-cartas-modal main {
     background-color: #fefefe;
     margin: 10% auto;
     padding: 20px;
@@ -62,18 +65,22 @@ h1 {
     overflow: scroll; 
 }
 
-#jogar-cartas-modal h2 {
+#jogar-cartas-modal h2, 
+#listar-cartas-modal h2 {
     margin-top: 0;
     font-size: 24px;
 }
 
-#jogar-cartas-modal label {
+#jogar-cartas-modal label, 
+#listar-cartas-modal label {
     display: block;
     margin-bottom: 10px;
 }
 
 #jogar-cartas-modal input[type="text"],
-#jogar-cartas-modal textarea {
+#jogar-cartas-modal textarea , 
+#listar-cartas-modal input[type="text"], 
+#listar-cartas-modal textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
@@ -82,7 +89,8 @@ h1 {
     box-sizing: border-box;
 }
 
-#jogar-cartas-modal button {
+#jogar-cartas-modal button , 
+#listar-cartas-modal button{
     background-color: #FFB03B;
     color: #FFF;
     border: none;
@@ -92,7 +100,8 @@ h1 {
     border-radius: 5px;
 }
 
-#jogar-cartas-modal button:hover {
+#jogar-cartas-modal button:hover, 
+#listar-cartas-modal button:hover {
     background-color: #FFA300;
 }
 

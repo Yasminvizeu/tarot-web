@@ -10,13 +10,14 @@
 <body>
     <div class="container">
         <h1>Jogue o Tarô Mágico!</h1>
-        <button id="button" onclick="openModal()" >Jogar Tarô</button>
+        <button id="button1" onclick="openModalJogar()" >Jogar Tarô</button>
+        <button id="button2" onclick="openModalListar()" >Listar cartas</button>
         <img class="illustration" src="./img/logo.png" alt="Ilustração de cartas de tarô">
     </div>
 </body>
 <div id="jogar-cartas-modal">
         <main>
-            <button id="fechar-modal" onclick="fecharModal()">Fechar</button>
+            <button id="fechar-modal" onclick="fecharModalJogar()">Fechar</button>
             <h2>Tarot Mágico</h2>
             <form onsubmit="jogarTarot(event)">
                 <label for="nome">Nome ou apelido:</label>
@@ -30,6 +31,21 @@
                 <p id="meaning-up-carta"></p>
                 <p id="meaning-rev-carta"></p>
                 <p id="descricao-carta"></p>
+            </div>
+        </main>
+</div>
+ <div id="listar-cartas-modal">
+        <main>
+            <button id="fechar-modal" onclick="fecharModalListar()">Fechar</button>
+            <h2>Tarot Mágico</h2>
+
+            <div id="carta">
+                <h3 id="nome-carta">Name: </h3>
+                <p id="valor-carta">Value: </p>
+                <p id="tipo-carta">Arcan: </p>
+                <p id="meaning-up-carta">Meaning Up: </p>
+                <p id="meaning-rev-carta">Meaning rev: </p>
+                <p id="descricao-carta">Description: </p>
             </div>
         </main>
     </div>
