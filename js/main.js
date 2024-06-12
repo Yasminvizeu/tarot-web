@@ -39,9 +39,10 @@ const openModalListar = () => {
     listarCartas();
 }
 
-const openModalAtualizar = () => {
+const openModalAtualizar = (nomeCarta) => {
     const modal = document.getElementById('atualizar-cartas-modal')
     modal.style.display = 'flex'
+    mostrarDetalhesCarta(nomeCarta);
 }
 
 function fecharModalJogar() {
@@ -88,7 +89,7 @@ function listarCartas() {
         button.dataset.name = carta.name;
 
         button.addEventListener("click", () => {
-            mostrarDetalhesCarta(carta.name);
+            openModalAtualizar(carta.name);
         });
 
         cartasContainer.appendChild(button);
@@ -100,22 +101,17 @@ function mostrarDetalhesCarta(nomeCarta) {
 
     console.log("Detalhes da carta:", selectedCarta);
 
-    const modalTitle = document.getElementById('nome-carta'); // Assuming name is displayed in 'nome-carta'
-    const modalValue = document.getElementById('valor-carta');
-    const modalType = document.getElementById('tipo-carta');
-    const modalMeaningUp = document.getElementById('meaning-up-carta');
-    const modalMeaningRev = document.getElementById('meaning-rev-carta');
-    const modalDesc = document.getElementById('descricao-carta');
+    const modalTitle = document.getElementById('nome-carta1'); // Assuming name is displayed in 'nome-carta'
+    const modalType = document.getElementById('tipo-carta1');
+    const modalMeaningUp = document.getElementById('meaning-up-carta1');
+    const modalMeaningRev = document.getElementById('meaning-rev-carta1');
+    const modalDesc = document.getElementById('descricao-carta1');
 
     modalTitle.textContent = selectedCarta.name;
-    modalValue.textContent = selectedCarta.value_int.toString;
     modalType.textContent = selectedCarta.type;
     modalMeaningUp.textContent = selectedCarta.meaning_up;
     modalMeaningRev.textContent = selectedCarta.meaning_rev;
     modalDesc.textContent = selectedCarta.desc;
-
-    openModalAtualizar();
-
 }
 
 function atualizarCartas() {
