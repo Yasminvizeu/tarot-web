@@ -32,6 +32,7 @@
             <input type="text" id="nome" name="nome" required>
             <button type="submit">Tirar carta</button>
         </form>
+        
         <div id="carta">
             <h3 id="nome-carta"></h3>
             <p id="valor-carta"></p>
@@ -39,7 +40,9 @@
             <p id="meaning-up-carta"></p>
             <p id="meaning-rev-carta"></p>
             <p id="descricao-carta"></p>
+            <button id="adiciona-Carta" onclick="addCard()" rendered="false">Salvar</button>
         </div>
+        
     </main>
 </div>
 <div id="listar-cartas-modal">

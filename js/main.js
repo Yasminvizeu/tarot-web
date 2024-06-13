@@ -26,8 +26,10 @@ var cartas = [
         meaning_up: 'Fairy favours, images of reflection, sentiment, imagination, things seen in the glass of contemplation; some attainment in these degrees, but nothing permanent or substantial is suggested.', meaning_rev: 'Desire, will, determination, project.',
         desc: 'A goodly personage has feasted to his hearts content, and abundant refreshment of wine is on the arched counter behind him, seeming to indicate that the future is also assured. The picture offers the material side only, but there are other aspects'
     }
-
 ];
+
+var cartasTiradas = []
+
 const openModalJogar = () => {
     const modal = document.getElementById('jogar-cartas-modal')
     modal.style.display = 'flex'
@@ -48,6 +50,7 @@ const openModalAtualizar = (nomeCarta) => {
 function fecharModalJogar() {
     var modal = document.getElementById("jogar-cartas-modal");
     modal.style.display = "none";
+    limparCard();
 }
 
 function fecharModalListar() {
@@ -58,6 +61,15 @@ function fecharModalListar() {
 function fecharModalAtualizar() {
     var modal = document.getElementById("atualizar-cartas-modal");
     modal.style.display = "none";
+}
+
+function limparCard(){
+    document.getElementById("nome-carta").textContent = null;
+    document.getElementById("valor-carta").textContent = null;
+    document.getElementById("tipo-carta").textContent = null;
+    document.getElementById("meaning-up-carta").textContent = null;
+    document.getElementById("meaning-rev-carta").textContent = null;
+    document.getElementById("descricao-carta").textContent = null;  
 }
 
 function jogarTarot(event) {
@@ -83,7 +95,7 @@ function jogarTarot(event) {
 function listarCartas() {
     const cartasContainer = document.getElementById("cartas");
     cartasContainer.innerHTML = "";
-    for (const carta of cartas) {
+    for (const carta of cartasTiradas) {
         const button = document.createElement("button");
         button.textContent = carta.name;
         button.dataset.name = carta.name;
@@ -101,7 +113,7 @@ function mostrarDetalhesCarta(nomeCarta) {
 
     console.log("Detalhes da carta:", selectedCarta);
 
-    const modalTitle = document.getElementById('nome-carta1'); // Assuming name is displayed in 'nome-carta'
+    const modalTitle = document.getElementById('nome-carta1'); 
     const modalType = document.getElementById('tipo-carta1');
     const modalMeaningUp = document.getElementById('meaning-up-carta1');
     const modalMeaningRev = document.getElementById('meaning-rev-carta1');
@@ -134,26 +146,43 @@ function atualizarCartas(event) {
 }
 
 function excluirCarta(event){
-    const teste = document.getElementById("nome-carta1")
-    const cartaName = teste.textContent;
+    const carta1 = document.getElementById("nome-carta1")
+    const cartaName = carta1.textContent;
     const selectedCarta = cartas.find(carta => carta.name === cartaName);
     const cartaIndex = cartas.indexOf(selectedCarta);
     if (cartaIndex !== -1) {
+        alert("Are you sure you want to remove" + cartaName);
       cartas.splice(cartaIndex, 1);
     } else {
       console.error("Erro ao obter o índice da carta:", cartaName);
     }
-
-    alert(cartaName + " removed with success");
-    
     const modal1 = document.getElementById("listar-cartas-modal")
     const modal2 = document.getElementById("atualizar-cartas-modal")
     modal1.style.display = 'none'
-    modal2.style.display = 'none'
-  
-    
-    
+    modal2.style.display = 'none'   
 }
+function addCard(){
+    const nome = document.getElementById("nome-carta").textContent
+    const valor = document.getElementById("valor-carta").textContent
+    const tipo = document.getElementById("tipo-carta").textContent 
+    const meaningUp =document.getElementById("meaning-up-carta").textContent 
+    const meaningRev = document.getElementById("meaning-rev-carta").textContent 
+    const desc = document.getElementById("descricao-carta").textContent
+    const carta = {
+        name: nome,
+        value_int: valor,
+        type: tipo,
+        meaning_up: meaningUp,
+        desc: desc
+    };
+    cartasTiradas.push(carta); 
+    console.log(carta)
+    alert(nome + " saved!")
+}
+
+
+
+
 
   
 
