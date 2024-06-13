@@ -121,14 +121,38 @@ function atualizarCartas(event) {
     const descCarta1 = document.getElementById('descricao-carta1');
     const nomeCarta = document.getElementById("nome-carta1")
     console.log(nomeCarta);
-    const selectedCarta = cartas.find(carta => carta.name === nomeCarta);
-    console.log(selectedCarta);
-
+    const carta = event.target.name.value
+    console.log(carta)
+    const cardToFind = { name:carta1.target.value };
+    const index = cartas.indexOf(cardToFind);
+    console.log("Position of card2:", index); // Output: 1
   
    
     
 
     console.log("atualizando campos")
+}
+
+function excluirCarta(event){
+    const teste = document.getElementById("nome-carta1")
+    const cartaName = teste.textContent;
+    const selectedCarta = cartas.find(carta => carta.name === cartaName);
+    const cartaIndex = cartas.indexOf(selectedCarta);
+    if (cartaIndex !== -1) {
+      cartas.splice(cartaIndex, 1);
+    } else {
+      console.error("Erro ao obter o índice da carta:", cartaName);
+    }
+
+    alert(cartaName + " removed with success");
+    
+    const modal1 = document.getElementById("listar-cartas-modal")
+    const modal2 = document.getElementById("atualizar-cartas-modal")
+    modal1.style.display = 'none'
+    modal2.style.display = 'none'
+  
+    
+    
 }
 
   
