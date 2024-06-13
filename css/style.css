@@ -9,8 +9,34 @@ body {
     height: 100vh;
 }
 
+body>header {
+    background: #391717;
+    padding: 10px 20px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+
+
+}
+
+body > footer {
+    background-color: #a79696;
+    color: #fff;
+    padding: 30px 20px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
 .container {
     text-align: center;
+    background: #c46363;
+
 }
 
 h1 {
@@ -31,7 +57,8 @@ h1 {
     transition: background-color 0.3s ease;
 }
 
-#button:hover, #button:hover {
+#button:hover,
+#button:hover {
     background-color: #FFA300;
 }
 
@@ -51,10 +78,10 @@ h1 {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);   
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-#jogar-cartas-modal main, 
+#jogar-cartas-modal main,
 #listar-cartas-modal main,
 #atualizar-cartas-modal main {
     background-color: #fefefe;
@@ -64,17 +91,17 @@ h1 {
     width: 100%;
     max-width: 600px;
     height: auto;
-    overflow: scroll; 
+    overflow: scroll;
 }
 
-#jogar-cartas-modal h2, 
+#jogar-cartas-modal h2,
 #listar-cartas-modal h2,
 #atualizar-cartas-modal h2 {
     margin-top: 0;
     font-size: 24px;
 }
 
-#jogar-cartas-modal label, 
+#jogar-cartas-modal label,
 #listar-cartas-modal label,
 #atualizar-cartas-modal label {
     display: block;
@@ -82,8 +109,8 @@ h1 {
 }
 
 #jogar-cartas-modal input[type="text"],
-#jogar-cartas-modal textarea , 
-#listar-cartas-modal input[type="text"], 
+#jogar-cartas-modal textarea,
+#listar-cartas-modal input[type="text"],
 #listar-cartas-modal textarea,
 #atualizar-cartas-modal input[type="text"],
 #atualizar-cartas-modal textarea {
@@ -95,9 +122,9 @@ h1 {
     box-sizing: border-box;
 }
 
-#jogar-cartas-modal button , 
+#jogar-cartas-modal button,
 #listar-cartas-modal button,
-#atualizar-cartas-modal button{
+#atualizar-cartas-modal button {
     background-color: #FFB03B;
     color: #FFF;
     border: none;
@@ -110,13 +137,13 @@ h1 {
     text-align: center;
 }
 
-#jogar-cartas-modal button:hover, 
+#jogar-cartas-modal button:hover,
 #listar-cartas-modal button:hover,
 #atualizar-cartas-modal button:hover {
     background-color: #FFA300;
 }
 
-#fechar-modal, 
+#fechar-modal,
 #fechar-modal2 {
     position: absolute;
     top: 10px;
@@ -128,16 +155,14 @@ h1 {
     cursor: pointer;
 }
 
-#fechar-modal:hover, 
+#fechar-modal:hover,
 #fechar-modal2:hover {
     color: #000;
 }
 
 #listar-cartas-modal #cartas {
-  display: flex; 
-  flex-direction: column; 
-  align-items: center;
-  justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
-
-
