@@ -114,7 +114,22 @@ function mostrarDetalhesCarta(nomeCarta) {
     modalDesc.textContent = selectedCarta.desc;
 }
 
-function atualizarCartas() {
+function atualizarCartas(event) {
+    event.preventDefault();
+
+    const carta1 = document.getElementById('carta1');
+    const descCarta1 = document.getElementById('descricao-carta1');
+    const nomeCarta = document.getElementById("nome-carta1")
+    console.log(nomeCarta);
+    const selectedCarta = cartas.find(carta => carta.name === nomeCarta);
+    console.log(selectedCarta);
+
+  
+   
+    
+
     console.log("atualizando campos")
 }
+
+  
 
