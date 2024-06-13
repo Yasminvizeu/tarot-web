@@ -10,7 +10,7 @@ body {
 }
 
 body>header {
-    background: #391717;
+    background: #b9a0a0;
     padding: 10px 20px;
     text-align: center;
     position: fixed;
@@ -30,12 +30,15 @@ body > footer {
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: 2000px;
 }
 
 .container {
+    width: 600px;
+    height: 500px;
     text-align: center;
     background: #c46363;
+    display: contents;
 
 }
 
@@ -55,6 +58,8 @@ h1 {
     cursor: pointer;
     border-radius: 10px;
     transition: background-color 0.3s ease;
+    justify-content: space-around;
+
 }
 
 #button:hover,
@@ -63,8 +68,11 @@ h1 {
 }
 
 .illustration {
+    
     max-width: 400px;
     margin-top: 50px;
+    justify-content: space-around;
+
 }
 
 #jogar-cartas-modal,
