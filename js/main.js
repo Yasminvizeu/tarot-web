@@ -77,14 +77,14 @@ function jogarTarot(event) {
 
     var cartaSelecionada = cartas[Math.floor(Math.random() * cartas.length)];
 
-    var saudacao = "Hi " + event.target.nome.value + ", you got the card: " + cartaSelecionada.name;
+    var saudacao = "Hi " + event.target.nome.value + ", this is you card, you can save it if you want: ";
     var valor = "VALUE:" + cartaSelecionada.value_int;
     var tipo = "TYPE: Arcan " + cartaSelecionada.type;
     var meaningUp = "MEANING UP: " + cartaSelecionada.meaning_up;
     var meaningRev = "MEANING REV: " + cartaSelecionada.meaning_rev;
     var descricao = "DESCRIPTION: " + cartaSelecionada.desc;
 
-    document.getElementById("nome-carta").textContent = saudacao;
+    document.getElementById("nome-carta").textContent = cartaSelecionada.name;
     document.getElementById("valor-carta").textContent = valor;
     document.getElementById("tipo-carta").textContent = tipo;
     document.getElementById("meaning-up-carta").textContent = meaningUp;
@@ -109,6 +109,7 @@ function listarCartas() {
 }
 
 function mostrarDetalhesCarta(nomeCarta) {
+    
     const selectedCarta = cartas.find((carta) => carta.name === nomeCarta);
 
     console.log("Detalhes da carta:", selectedCarta);
@@ -148,11 +149,11 @@ function atualizarCartas(event) {
 function excluirCarta(event){
     const carta1 = document.getElementById("nome-carta1")
     const cartaName = carta1.textContent;
-    const selectedCarta = cartas.find(carta => carta.name === cartaName);
-    const cartaIndex = cartas.indexOf(selectedCarta);
+    const selectedCarta = cartasTiradas.find(carta => carta.name === cartaName);
+    const cartaIndex = cartasTiradas.indexOf(selectedCarta);
     if (cartaIndex !== -1) {
         alert("Are you sure you want to remove" + cartaName);
-      cartas.splice(cartaIndex, 1);
+      cartasTiradas.splice(cartaIndex, 1);
     } else {
       console.error("Erro ao obter o índice da carta:", cartaName);
     }
@@ -162,12 +163,14 @@ function excluirCarta(event){
     modal2.style.display = 'none'   
 }
 function addCard(){
+
     const nome = document.getElementById("nome-carta").textContent
     const valor = document.getElementById("valor-carta").textContent
     const tipo = document.getElementById("tipo-carta").textContent 
     const meaningUp =document.getElementById("meaning-up-carta").textContent 
     const meaningRev = document.getElementById("meaning-rev-carta").textContent 
     const desc = document.getElementById("descricao-carta").textContent
+
     const carta = {
         name: nome,
         value_int: valor,
@@ -175,9 +178,17 @@ function addCard(){
         meaning_up: meaningUp,
         desc: desc
     };
-    cartasTiradas.push(carta); 
-    console.log(carta)
-    alert(nome + " saved!")
+    // Validation: Check if any required fields are empty
+  if (nome === "" || valor === "" || tipo === "") {
+    alert("Please fill in your name and take your card before save it!");
+    return; // Exit function if validation fails
+  }
+
+  // Add the card to the cartasTiradas array
+  cartasTiradas.push(carta);
+
+  // Display success message
+  alert(nome + " saved!");
 }
 
 
