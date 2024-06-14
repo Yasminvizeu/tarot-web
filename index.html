@@ -10,63 +10,69 @@
 </head>
 
 <body>
-        <header>
-            <h1>Magic Tarot</h1>
-        </header>
-        <main class="container">
-            <img class="illustration" src="./img/logo.png" alt="Ilustração de cartas de tarô">
+    <header>
+        <h1>Magic Tarot</h1>
+        <nav>
             <button id="button1" onclick="openModalJogar()">Play</button>
             <button id="button2" onclick="openModalListar()">Cards</button>
-            <button id="button2" onclick="openModalListar()">Deck</button>
+            <button id="button3" onclick="openModalAtualizar()">Deck</button>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <img src="img/logo.png" alt="Imagem de Tarô" class="illustration">
+
+        </div>
+    </main>
+    <footer>
+        <p>Copyright 2024 © Yasmin Gil</p>
+    </footer>
+
+    <div id="jogar-cartas-modal">
+        <main>
+            <button id="fechar-modal" onclick="fecharModalJogar()">Fechar</button>
+            <h2>Magic Tarot</h2>
+            <form onsubmit="jogarTarot(event)">
+                <label for="nome">Nome ou apelido:</label>
+                <input type="text" id="nome" name="nome" required>
+                <button type="submit">Tirar carta</button>
+            </form>
+            <div id="carta">
+                <h3 id="nome-carta"></h3>
+                <p id="valor-carta"></p>
+                <p id="tipo-carta"></p>
+                <p id="meaning-up-carta"></p>
+                <p id="meaning-rev-carta"></p>
+                <p id="descricao-carta"></p>
+                <button id="adiciona-Carta" onclick="addCard()" rendered="false">Salvar</button>
+            </div>
         </main>
-        <footer></footer>
-    </main>
-    <footer></footer>
-    
+    </div>
+
+    <div id="listar-cartas-modal">
+        <main>
+            <button id="fechar-modal" onclick="fecharModalListar()">Fechar</button>
+            <h2>Magic Cards</h2>
+            <p>your saved cards gonna appear here!</p>
+            <div id="cartas">
+            </div>
+        </main>
+    </div>
+
+    <div id="atualizar-cartas-modal">
+        <main>
+            <button id="fechar-modal2" onclick="fecharModalAtualizar()">Fechar</button>
+            <h2>Update Your Magic Cards</h2>
+            <div id="carta1">
+                <p id="nome-carta1"></p>
+                <p id="tipo-carta1"></p>
+                <p id="meaning-up-carta1" contenteditable="true"></p>
+                <p id="meaning-rev-carta1" contenteditable="true"></p>
+                <p id="descricao-carta1" contenteditable="true"></p>
+                <button id="button3" onclick="atualizarCartas(event)">Salvar</button>
+                <button id="button4" onclick="excluirCarta(event)">Excluir</button>
+            </div>
+        </main>
+    </div>
 </body>
-<div id="jogar-cartas-modal">
-    <main>
-        <button id="fechar-modal" onclick="fecharModalJogar()">Fechar</button>
-        <h2>Magic Tarot</h2>
-        <form onsubmit="jogarTarot(event)">
-            <label for="nome">Nome ou apelido:</label>
-            <input type="text" id="nome" name="nome" required>
-            <button type="submit">Tirar carta</button>
-        </form>
-        
-        <div id="carta">
-            <h3 id="nome-carta"></h3>
-            <p id="valor-carta"></p>
-            <p id="tipo-carta"></p>
-            <p id="meaning-up-carta"></p>
-            <p id="meaning-rev-carta"></p>
-            <p id="descricao-carta"></p>
-            <button id="adiciona-Carta" onclick="addCard()" rendered="false">Salvar</button>
-        </div>
-        
-    </main>
-</div>
-<div id="listar-cartas-modal">
-    <main>
-        <button id="fechar-modal" onclick="fecharModalListar()">Fechar</button>
-        <h2>Magic Cards</h2>
-        <div id="cartas">
-        </div>
-    </main>
-</div>
-<div id="atualizar-cartas-modal">
-    <main>
-        <button id="fechar-modal2" onclick="fecharModalAtualizar()">Fechar</button>
-        <h2>Update Your Magic Cards</h2>
-        <div id="carta1">
-            <p id="nome-carta1" ></p>
-            <p id="tipo-carta1" ></p>
-            <p id="meaning-up-carta1" contenteditable="true"></p>
-            <p id="meaning-rev-carta1" contenteditable="true"></p>
-            <p id="descricao-carta1" contenteditable="true"></p>
-            <button id="button3" onclick="atualizarCartas(event)">Salvar</button>
-            <button id="button4" onclick="excluirCarta(event)">Excluir</button>
-        </div>
-    </main>
-</div>
 </html>
