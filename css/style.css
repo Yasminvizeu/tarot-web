@@ -116,7 +116,7 @@ h1 {
 #jogar-cartas-modal main,
 #listar-cartas-modal main,
 #atualizar-cartas-modal main {
-    background-color: #fefefe;
+    background-color: #dcd5d5;
     margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
@@ -124,6 +124,9 @@ h1 {
     max-width: 600px;
     height: auto;
     overflow: scroll;
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; 
 }
 
 #jogar-cartas-modal h2,
@@ -196,4 +199,8 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+}
+
+#jogar-cartas-modal h2, form, #carta {
+    width: 400px;
 }

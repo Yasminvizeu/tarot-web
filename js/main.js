@@ -129,27 +129,26 @@ function mostrarDetalhesCarta(nomeCarta) {
 
 function atualizarCartas(event) {
     event.preventDefault();
-    const nomeCarta = document.getElementById("nome-carta1")
-    console.log(nomeCarta.textContent)
-    const meanUp = document.getElementById("meaning-up-carta1")
-    console.log(meanUp.textContent)
-    const meanRev = document.getElementById("meaning-rev-carta1")
-    console.log(meanRev.textContent)
-    const descCarta = document.getElementById("descricao-carta1")
-   
-    console.log(descCarta.textContent)
-   
-    const selectedCarta = cartasTiradas.find(carta => carta.name === nomeCarta.textContent);
+    const nomeCarta = document.getElementById("nome-carta1").textContent
+    const novoMeanUp = document.getElementById("meaning-up-carta1").textContent
+    const novoMeanRev = document.getElementById("meaning-rev-carta1").textContent
+    const novaDescricao = document.getElementById("descricao-carta1").textContent
+
+    const selectedCarta = cartasTiradas.find(carta => carta.name === nomeCarta);
     console.log(selectedCarta)
 
     const cartaIndex = cartasTiradas.indexOf(selectedCarta);
     if (cartaIndex !== -1) {
         console.log(cartaIndex)
+        cartasTiradas[cartaIndex].meaningUp = novoMeanUp;
+        cartasTiradas[cartaIndex].meaningRev = novoMeanRev;
+        cartasTiradas[cartaIndex].descricao = novaDescricao;
+        console.log(cartasTiradas[cartaIndex])
 
     } else {
-        console.error("Erro ao obter o índice da carta:", cartaName);
+        console.error("Erro ao obter o índice da carta:", nomeCarta);
     }
-   
+
 }
 
 
@@ -158,17 +157,17 @@ function atualizarCartas(event) {
 
 function TT(event) {
     event.preventDefault();
-    
+
     // Obtendo os novos valores dos campos editáveis
     const nomeCarta = document.getElementById("nome-carta1").textContent;
     const meanUp = document.getElementById("meaning-up-carta1").textContent;
     const meanRev = document.getElementById("meaning-rev-carta1").textContent;
     const descCarta = document.getElementById("descricao-carta1").textContent;
-    
+
     // Encontrar a carta no array
     const cartaSelecionada = cartas.find(carta => carta.nome === nomeCarta);
-    
-    
+
+
 }
 
 
