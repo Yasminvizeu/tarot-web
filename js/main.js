@@ -106,11 +106,12 @@ function listarCartas() {
 
         cartasContainer.appendChild(button);
     }
+    console.log('carta tirada: ', cartasTiradas)
 }
 
 function mostrarDetalhesCarta(nomeCarta) {
 
-    const selectedCarta = cartas.find((carta) => carta.name === nomeCarta);
+    const selectedCarta = cartasTiradas.find((carta) => carta.name === nomeCarta);
 
     console.log("Detalhes da carta:", selectedCarta);
 
@@ -120,10 +121,12 @@ function mostrarDetalhesCarta(nomeCarta) {
     const modalMeaningRev = document.getElementById('meaning-rev-carta1');
     const modalDesc = document.getElementById('descricao-carta1');
 
+    console.log('descricao',modalDesc)
+
     modalTitle.textContent = selectedCarta.name;
     modalType.textContent = selectedCarta.type;
-    modalMeaningUp.textContent = selectedCarta.meaning_up;
-    modalMeaningRev.textContent = selectedCarta.meaning_rev;
+    modalMeaningUp.textContent = selectedCarta.meaningUp;
+    modalMeaningRev.textContent = selectedCarta.meaningRev;
     modalDesc.textContent = selectedCarta.desc;
 }
 
@@ -139,21 +142,17 @@ function atualizarCartas(event) {
 
     const cartaIndex = cartasTiradas.indexOf(selectedCarta);
     if (cartaIndex !== -1) {
-        console.log(cartaIndex)
+        console.log('index: ',cartaIndex)
         cartasTiradas[cartaIndex].meaningUp = novoMeanUp;
         cartasTiradas[cartaIndex].meaningRev = novoMeanRev;
-        cartasTiradas[cartaIndex].descricao = novaDescricao;
-        console.log(cartasTiradas[cartaIndex])
+        cartasTiradas[cartaIndex].desc = novaDescricao;
+        console.log('cartas salvas:',cartasTiradas[cartaIndex])
 
     } else {
         console.error("Erro ao obter o índice da carta:", nomeCarta);
     }
 
 }
-
-
-
-
 
 function TT(event) {
     event.preventDefault();
@@ -169,7 +168,6 @@ function TT(event) {
 
 
 }
-
 
 function excluirCarta(event) {
     const carta1 = document.getElementById("nome-carta1")
@@ -187,6 +185,7 @@ function excluirCarta(event) {
     modal1.style.display = 'none'
     modal2.style.display = 'none'
 }
+
 function addCard() {
 
     const nome = document.getElementById("nome-carta").textContent
@@ -200,7 +199,8 @@ function addCard() {
         name: nome,
         value_int: valor,
         type: tipo,
-        meaning_up: meaningUp,
+        meaningUp: meaningUp,
+        meaningRev: meaningRev,
         desc: desc
     };
     if (nome === "" || valor === "" || tipo === "") {
@@ -211,6 +211,30 @@ function addCard() {
 
 }
 
+// const createApiCard = async (event) => {
+//     event.preventDefault()
+    
+//     try{
+//         const response = await fetch('https://tarotapi.dev/api/v1/cards/random?n=1')
+//         const result = await response.json()
+
+//         if(!response.ok){
+//             alert('erro ao consultar ação!')
+//             return
+//         }
+
+//         const card = {
+//             name:result.name,
+//             valor:result.value,
+//             tipo:result.type,
+//             meaning_up:result
+//             meaning_rev:
+//             desc:
+//         }
+//     }
+
+
+// }
 
 
 
