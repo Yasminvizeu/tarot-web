@@ -74,7 +74,8 @@ h1 {
 
 #button1,
 #button2,
-#button3 {
+#button3,
+#button4 {
     background-color: #FFB03B;
     color: #FFF;
     border: none;
@@ -123,8 +124,8 @@ h1 {
     padding: 20px;
     border: 1px solid #888;
     width: 100%;
-    max-width: 600px;
-    height: auto;
+    max-width: 900px;
+    height: 600px;
     overflow: scroll;
     display: flex;
     flex-direction: column; 
@@ -165,7 +166,7 @@ h1 {
 
 #jogar-cartas-modal button,
 #listar-cartas-modal button,
-#atualizar-cartas-modal button
+#atualizar-cartas-modal button,
 #listar-todas-cartas-modal button {
     background-color: #FFB03B;
     color: #FFF;
@@ -184,7 +185,7 @@ h1 {
 #listar-todas-cartas-modal button:hover {
     background-color: #FFA300;
 }
-
+#fechar-modal1,
 #fechar-modal,
 #fechar-modal2, 
 #fechar-modal3 {
@@ -198,6 +199,7 @@ h1 {
     cursor: pointer;
 }
 
+#fechar-modal1:hover,
 #fechar-modal:hover,
 #fechar-modal2:hover,
 #fechar-modal3:hover {
@@ -214,4 +216,8 @@ h1 {
 
 #jogar-cartas-modal h2, form, #carta {
     width: 400px;
+}
+
+#carta1{
+    width: 900px;
 }
