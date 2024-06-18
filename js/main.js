@@ -72,24 +72,81 @@ function limparCard() {
     document.getElementById("descricao-carta").textContent = null;
 }
 
+// function jogarTarot(event) {
+//     event.preventDefault();
+
+//     var cartaSelecionada = cartas[Math.floor(Math.random() * cartas.length)];
+
+//     var saudacao = "Hi " + event.target.nome.value + ", this is you card, you can save it if you want: ";
+//     var valor = "VALUE:" + cartaSelecionada.value_int;
+//     var tipo = "TYPE: Arcan " + cartaSelecionada.type;
+//     var meaningUp = "MEANING UP: " + cartaSelecionada.meaning_up;
+//     var meaningRev = "MEANING REV: " + cartaSelecionada.meaning_rev;
+//     var descricao = "DESCRIPTION: " + cartaSelecionada.desc;
+
+//     document.getElementById("nome-carta").textContent = cartaSelecionada.name;
+//     document.getElementById("valor-carta").textContent = valor;
+//     document.getElementById("tipo-carta").textContent = tipo;
+//     document.getElementById("meaning-up-carta").textContent = meaningUp;
+//     document.getElementById("meaning-rev-carta").textContent = meaningRev;
+//     document.getElementById("descricao-carta").textContent = descricao;
+// }
+
+
 function jogarTarot(event) {
     event.preventDefault();
 
-    var cartaSelecionada = cartas[Math.floor(Math.random() * cartas.length)];
-
+    fetchTarotCartaAleatoria().then(data => {
+        const card = data.cards[0];
+       
     var saudacao = "Hi " + event.target.nome.value + ", this is you card, you can save it if you want: ";
-    var valor = "VALUE:" + cartaSelecionada.value_int;
-    var tipo = "TYPE: Arcan " + cartaSelecionada.type;
-    var meaningUp = "MEANING UP: " + cartaSelecionada.meaning_up;
-    var meaningRev = "MEANING REV: " + cartaSelecionada.meaning_rev;
-    var descricao = "DESCRIPTION: " + cartaSelecionada.desc;
+    var valor = "VALUE:" + card.value_int;
+    var tipo = "TYPE: Arcan " + card.type;
+    var meaningUp = "MEANING UP: " + card.meaning_up;
+    var meaningRev = "MEANING REV: " + card.meaning_rev;
+    var descricao = "DESCRIPTION: " + card.desc;
+    console.log("valor: ", valor)
 
-    document.getElementById("nome-carta").textContent = cartaSelecionada.name;
+    document.getElementById("nome-carta").textContent = card.name;
     document.getElementById("valor-carta").textContent = valor;
     document.getElementById("tipo-carta").textContent = tipo;
     document.getElementById("meaning-up-carta").textContent = meaningUp;
     document.getElementById("meaning-rev-carta").textContent = meaningRev;
     document.getElementById("descricao-carta").textContent = descricao;
+
+        console.log('carta jogarTarot: ', card);
+    }).catch(error => {
+        console.error('Erro ao buscar carta', error);
+    });
+
+}
+
+const fetchTarotCartaAleatoria = async () => {
+    try {
+        const response = await fetch('https://tarotapi.dev/api/v1/cards/random?n=1');
+        if (!response.ok) {
+            throw new Error(`Erro na requisição: ${response.statusText}`);
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Erro ao buscar carta na API', error);
+        throw error; 
+    }
+}
+
+const fetchTarotCarta = async () => {
+    try {
+        const response = await fetch('https://tarotapi.dev/api/v1/cards');
+        if (!response.ok) {
+            throw new Error(`Erro na requisição: ${response.statusText}`);
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Erro ao buscar carta na API', error);
+        throw error; 
+    }
 }
 
 function listarCartas() {
