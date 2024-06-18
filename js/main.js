@@ -47,6 +47,13 @@ const openModalAtualizar = (nomeCarta) => {
     mostrarDetalhesCarta(nomeCarta);
 }
 
+const openModalListarCartas = () => {
+    const modal = document.getElementById('listar-todas-cartas-modal')
+    modal.style.display = 'flex'
+    listarCartasApi();
+}
+
+
 function fecharModalJogar() {
     var modal = document.getElementById("jogar-cartas-modal");
     modal.style.display = "none";
@@ -63,6 +70,11 @@ function fecharModalAtualizar() {
     modal.style.display = "none";
 }
 
+function fecharModalListarCartas() {
+    var modal = document.getElementById("listar-todas-cartas-modal");
+    modal.style.display = "none";
+}
+
 function limparCard() {
     document.getElementById("nome-carta").textContent = null;
     document.getElementById("valor-carta").textContent = null;
@@ -71,26 +83,6 @@ function limparCard() {
     document.getElementById("meaning-rev-carta").textContent = null;
     document.getElementById("descricao-carta").textContent = null;
 }
-
-// function jogarTarot(event) {
-//     event.preventDefault();
-
-//     var cartaSelecionada = cartas[Math.floor(Math.random() * cartas.length)];
-
-//     var saudacao = "Hi " + event.target.nome.value + ", this is you card, you can save it if you want: ";
-//     var valor = "VALUE:" + cartaSelecionada.value_int;
-//     var tipo = "TYPE: Arcan " + cartaSelecionada.type;
-//     var meaningUp = "MEANING UP: " + cartaSelecionada.meaning_up;
-//     var meaningRev = "MEANING REV: " + cartaSelecionada.meaning_rev;
-//     var descricao = "DESCRIPTION: " + cartaSelecionada.desc;
-
-//     document.getElementById("nome-carta").textContent = cartaSelecionada.name;
-//     document.getElementById("valor-carta").textContent = valor;
-//     document.getElementById("tipo-carta").textContent = tipo;
-//     document.getElementById("meaning-up-carta").textContent = meaningUp;
-//     document.getElementById("meaning-rev-carta").textContent = meaningRev;
-//     document.getElementById("descricao-carta").textContent = descricao;
-// }
 
 
 function jogarTarot(event) {
@@ -107,7 +99,7 @@ function jogarTarot(event) {
     var descricao = "DESCRIPTION: " + card.desc;
     console.log("valor: ", valor)
 
-    document.getElementById("nome-carta").textContent = card.name;
+    document.getElementById("nome-carta").textContent = "Hi " + event.target.nome.value + ", this is you card, you can save it if you want: "+ card.name ;
     document.getElementById("valor-carta").textContent = valor;
     document.getElementById("tipo-carta").textContent = tipo;
     document.getElementById("meaning-up-carta").textContent = meaningUp;
@@ -164,6 +156,31 @@ function listarCartas() {
         cartasContainer.appendChild(button);
     }
     console.log('carta tirada: ', cartasTiradas)
+}
+
+function listarCartasApi() {
+    const cartasContainer = document.getElementById("cartas2");
+    cartasContainer.innerHTML = "";
+
+
+    fetchTarotCarta().then(data => {
+        for (const carta of data.cards)
+         console.log("cards: ", carta.name)
+    
+             const button = document.createElement("button");
+             button.textContent = carta.name;
+    
+             button.addEventListener("click", () => {
+                 console.log("cartaaa do deck")
+             });
+    
+             cartasContainer.appendChild(button);
+        // };
+       
+    }).catch(error => {
+        console.error('Erro ao buscar carta', error);
+    });
+   
 }
 
 function mostrarDetalhesCarta(nomeCarta) {

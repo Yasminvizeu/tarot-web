@@ -15,7 +15,7 @@
         <nav>
             <button id="button1" onclick="openModalJogar()">Play</button>
             <button id="button2" onclick="openModalListar()">Cards</button>
-            <button id="button3" onclick="openModalAtualizar()">Deck</button>
+            <button id="button3" onclick="openModalListarCartas()">Deck</button>
         </nav>
     </header>
     <main>
@@ -71,6 +71,15 @@
                 <p id="descricao-carta1" contenteditable="true"></p>
                 <button id="button3" onclick="atualizarCartas(event)">Salvar</button>
                 <button id="button4" onclick="excluirCarta(event)">Excluir</button>
+            </div>
+        </main>
+    </div>
+    <div id="listar-todas-cartas-modal">
+        <main>
+            <button id="fechar-modal3" onclick="fecharModalListarCartas()">Fechar</button>
+            <h2>Magic Cards</h2>
+            <p>All cards of the deck gonna appear here!</p>
+            <div id="cartas2">
             </div>
         </main>
     </div>
