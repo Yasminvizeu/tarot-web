@@ -13,9 +13,9 @@
     <header>
         <h1>Magic Tarot</h1>
         <nav>
-            <button id="button1" onclick="openModalJogar()">Play</button>
-            <button id="button2" onclick="openModalListar()">Cards</button>
-            <button id="button3" onclick="openModalListarCartas()">Deck</button>
+            <button id="button1" onclick="openModalJogar()">Start Game</button>
+            <button id="button2" onclick="openModalListar()">List Saved Cards</button>
+            <button id="button3" onclick="openModalListarCartas()">List Deck Cards</button>
         </nav>
     </header>
     <main>
@@ -44,14 +44,14 @@
                 <p id="meaning-up-carta"></p>
                 <p id="meaning-rev-carta"></p>
                 <p id="descricao-carta"></p>
-                <button id="adiciona-Carta" onclick="addCard()" rendered="false">Salvar</button>
+                <button id="adiciona-Carta" onclick="addCard()" rendered="false">Add card</button>
             </div>
         </main>
     </div>
 
     <div id="listar-cartas-modal">
         <main>
-            <button id="fechar-modal" onclick="fecharModalListar()">Fechar</button>
+            <button id="fechar-modal" onclick="fecharModalListar()">Close</button>
             <h2>Magic Cards</h2>
             <p>your saved cards gonna appear here!</p>
             <div id="cartas">
@@ -61,7 +61,7 @@
 
     <div id="atualizar-cartas-modal">
         <main>
-            <button id="fechar-modal2" onclick="fecharModalAtualizar()">Fechar</button>
+            <button id="fechar-modal2" onclick="fecharModalAtualizar()">Close</button>
             <h2>Update Your Magic Cards</h2>
             <div id="carta1">
                 <p id="nome-carta1"></p>
@@ -69,14 +69,14 @@
                 <p id="meaning-up-carta1" contenteditable="true"></p>
                 <p id="meaning-rev-carta1" contenteditable="true"></p>
                 <p id="descricao-carta1" contenteditable="true"></p>
-                <button id="button3" onclick="atualizarCartas(event)">Salvar</button>
-                <button id="button4" onclick="excluirCarta(event)">Excluir</button>
+                <button id="button3" onclick="atualizarCartas(event)">Update</button>
+                <button id="button4" onclick="excluirCarta(event)">Delete</button>
             </div>
         </main>
     </div>
     <div id="listar-todas-cartas-modal">
         <main>
-            <button id="fechar-modal3" onclick="fecharModalListarCartas()">Fechar</button>
+            <button id="fechar-modal3" onclick="fecharModalListarCartas()">Close</button>
             <h2>Magic Cards</h2>
             <p>All cards of the deck gonna appear here!</p>
             <div id="cartas2">
