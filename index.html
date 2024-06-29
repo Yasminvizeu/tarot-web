@@ -1,87 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jogo de Tarô</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="js/main.js"></script>
-</head>
-
-<body>
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
     <header>
-        <h1>Magic Tarot</h1>
-        <nav>
-            <button id="button1" onclick="openModalJogar()">Start Game</button>
-            <button id="button2" onclick="openModalListar()">List Saved Cards</button>
-            <button id="button3" onclick="openModalListarCartas()">List Deck Cards</button>
-        </nav>
+      <h1>Magic Tarot</h1>
+      <nav>
+        <div class="nav-links">
+          <button id="button1" onclick="openModalJogar()">Start Game</button>
+          <button id="button2" onclick="openModalListar()">
+            List Saved Cards
+          </button>
+          <button id="button3" onclick="openModalListarCartas()">
+            List Deck Cards
+          </button>
+        </div>
+      </nav>
     </header>
     <main>
-        <div class="container">
-            <img src="img/logo.png" alt="Imagem de Tarô" class="illustration">
+      <div class="container">
+        <p class="username"></p>
 
-        </div>
+        <img src="img/logo.png" alt="Imagem de Tarô" class="illustration" />
+      </div>
     </main>
     <footer>
-        <p>Copyright 2024 © Yasmin Gil</p>
+      <p>Copyright 2024 © Yasmin Gil</p>
     </footer>
 
-    <div id="jogar-cartas-modal">
-        <main>
-            <button id="fechar-modal" onclick="fecharModalJogar()">Fechar</button>
-            <h2>Magic Tarot</h2>
-            <form onsubmit="jogarTarot(event)">
-                <label for="nome"> Enter your nickname, take a breath, stop for 5 seconds, reflect what question you want to ask and get your response in the card:</label>
-                <input type="text" id="nome" name="nome" required placeholder="Enter your nickname">
-                <button type="submit">Take your card</button>
-            </form>
-            <div id="carta">
-                <h3 id="nome-carta"></h3>
-                <p id="valor-carta"></p>
-                <p id="tipo-carta"></p>
-                <p id="meaning-up-carta"></p>
-                <p id="meaning-rev-carta"></p>
-                <p id="descricao-carta"></p>
-                <button id="adiciona-Carta" onclick="addCard()" rendered="false">Add card</button>
-            </div>
-        </main>
+    <!-- Modal Jogar Cartas -->
+    <div id="jogar-cartas-modal" class="modal">
+      <main>
+        <button id="fechar-modal1" onclick="fecharModalJogar()">Fechar</button>
+        <h2>Magic Tarot</h2>
+        <form onsubmit="jogarTarot(event)">
+          <label for="nome"
+            >Enter your nickname, take a breath, stop for 5 seconds, reflect
+            what question you want to ask and get your response in the
+            card:</label
+          >
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            required
+            placeholder="Enter your nickname"
+          />
+          <button type="submit">Take your card</button>
+        </form>
+        <div id="carta">
+          <h3 id="nome-carta" class="card-title"></h3>
+          <p id="tipo-carta">
+            <span class="label"></span><span class="type-content"></span>
+          </p>
+          <p id="meaning-up-carta">
+            <span class="label"></span><span class="meaning-up-content"></span>
+          </p>
+          <p id="meaning-rev-carta">
+            <span class="label"></span><span class="meaning-rev-content"></span>
+          </p>
+          <p id="descricao-carta">
+            <span class="label"></span><span class="descricao-content"></span>
+          </p>
+          <button id="adiciona-Carta" onclick="addCard()" rendered="false">
+            Add card
+          </button>
+        </div>
+      </main>
     </div>
 
-    <div id="listar-cartas-modal">
-        <main>
-            <button id="fechar-modal" onclick="fecharModalListar()">Close</button>
-            <h2>Magic Cards</h2>
-            <p>your saved cards gonna appear here!</p>
-            <div id="cartas">
-            </div>
-        </main>
+    <!-- Modal Listar Cartas -->
+    <div id="listar-cartas-modal" class="modal">
+      <main>
+        <button id="fechar-modal2" onclick="fecharModalListar()">Close</button>
+        <h2>Magic Cards</h2>
+        <p class="intro">Here you will find all your saved cards!</p>
+        <div class="lista">
+          <div id="cartas"></div>
+        </div>
+      </main>
     </div>
 
-    <div id="atualizar-cartas-modal">
-        <main>
-            <button id="fechar-modal2" onclick="fecharModalAtualizar()">Close</button>
-            <h2>Update Your Magic Cards</h2>
-            <div id="carta1">
-                <p id="nome-carta1"></p>
-                <p id="tipo-carta1"></p>
-                <p id="meaning-up-carta1" contenteditable="true"></p>
-                <p id="meaning-rev-carta1" contenteditable="true"></p>
-                <p id="descricao-carta1" contenteditable="true"></p>
-                <button id="button3" onclick="atualizarCartas(event)">Update</button>
-                <button id="button4" onclick="excluirCarta(event)">Delete</button>
-            </div>
-        </main>
+    <!-- Modal Atualizar Cartas -->
+    <div id="atualizar-cartas-modal" class="modal">
+      <main>
+        <button id="fechar-modal3" onclick="fecharModalAtualizar()">
+          Close
+        </button>
+        <h2>Edit Your Magic Cards</h2>
+        <div id="carta1" class="carta">
+          <p id="nome-carta1"></p>
+          <p id="tipo-carta1"></p>
+          <p
+            id="meaning-up-carta1"
+            class="editable-input"
+            contenteditable="true"
+          ></p>
+          <p
+            id="meaning-rev-carta1"
+            class="editable-input"
+            contenteditable="true"
+          ></p>
+          <p
+            id="descricao-carta1"
+            class="editable-input"
+            contenteditable="true"
+          ></p>
+          <button class="btn-atualizar btn" onclick="atualizarCartas(event)">Update</button>
+          <button class="btn-excluir btn" onclick="excluirCarta(event)">Delete</button>
+        </div>
+      </main>
     </div>
-    <div id="listar-todas-cartas-modal">
-        <main>
-            <button id="fechar-modal3" onclick="fecharModalListarCartas()">Close</button>
-            <h2>Magic Cards</h2>
-            <p>All cards of the deck gonna appear here!</p>
-            <div id="cartas2">
-            </div>
-        </main>
+
+    <!-- Modal Listar Todas Cartas -->
+    <div id="listar-todas-cartas-modal" class="modal">
+      <main>
+        <button id="fechar-modal4" onclick="fecharModalListarCartas()">
+          Close
+        </button>
+        <h2>Magic Cards</h2>
+        <p>Here you will find the complete tarot deck to choose from!</p>
+        <div id="cartasLista" class="lista">
+          <div id="cartas2"></div>
+        </div>
+      </main>
     </div>
-</body>
+  </body>
 </html>
